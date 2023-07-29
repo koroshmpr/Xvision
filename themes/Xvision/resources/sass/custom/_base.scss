@@ -1,0 +1,40 @@
+html, body {
+  overflow-x: hidden;
+}
+body.modal-open {
+  padding:0!important;
+}
+// SCROLL bar styles
+::-webkit-scrollbar {
+  width: 6px;
+  height: 0;
+}
+.start-90 {
+  left: 90%;
+}
+.text-justify {
+  text-align: justify;
+}
+.lh-0 {
+  line-height: 0 !important;
+}
+.hover-text:hover {
+  color:white!important
+}
+.background-cover {
+  background-size: cover;
+}
+::-webkit-scrollbar-track {
+  background: $secondary;
+}
+::-webkit-scrollbar-thumb {
+  background: $primary;
+  border-radius: 2rem;
+}
+//custom css
+a {
+  text-decoration: none !important;
+}
+footer {
+  background: $footer;
+}

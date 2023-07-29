@@ -1,0 +1,218 @@
+// Fonts
+
+//custom classes
+@import "custom/variables";
+
+// Bootstrap
+@import 'modules/bootstrap';
+
+
+//animate.css
+:root {
+  --animate-duration: 1s;
+  --animate-delay: .5s;
+  --animate-repeat: 1;
+  --Iconsax-Size: 20px;
+  --Iconsax-Color: #fff;
+  --services-bg: green;
+}
+
+$footer: #2a3344;
+$card: rgba(43, 98, 162, 0.75);
+
+@import '~animate.css/animate.css';
+
+
+//custom base classes
+@import "custom/base";
+@import "custom/editor";
+@import "custom/button";
+
+// header
+@import "custom/header";
+@import "responsive";
+
+.custom-opacity {
+  opacity:0
+}
+#header_title , #header_subtitle {
+  height:50px;
+}
+.product-img {
+  filter: brightness(0.8);
+}
+.modal.fade.show {
+  backdrop-filter: blur(10px);
+}
+.modal-btn {
+  cursor: pointer;
+}
+//product card
+.product-card {
+  border: 2px solid transparent;
+  transition: all 0.3s ease-out;
+  &:hover {
+    border-color: $card;
+    box-shadow: 0 0 9px rgba(128, 128, 128, 0.29);
+    @extend .bg-primary, .bg-opacity-10;
+
+    span {
+      color: $primary !important
+    }
+  }
+}
+// slider
+.img-slider {
+  max-height: 100vh;
+  width: 100vw;
+  object-fit: revert;
+}
+
+// gravity form
+.gform_next_button {
+  line-height: 0px!important;
+}
+.gform_page_footer {
+  padding: 0 !important;
+  margin: 0 !important;
+}
+
+.gform_next_button {
+  width: 100%;
+}
+
+.gform_confirmation_message {
+  font-size: 1.5rem;
+  text-align: center;
+  padding: 15px 0;
+}
+
+#gform_3_validation_container,
+.gform_required_legend,
+.gform_previous_button,
+.validation_message {
+  display: none !important;
+}
+
+#validation_message_3_3 {
+  display: block !important;
+}
+
+.gform_body .gform_page:nth-child(n+2) {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+}
+
+#gform_next_button_3_8 {
+  margin-bottom: 0 !important;
+  align-items: center;
+}
+
+// gradient circle fill
+.gradient-box-fill {
+  width: 65px;
+  height: 65px;
+  background: linear-gradient(45deg, $primary 50%, #071134);
+  animation: floating 3s cubic-bezier(0.93, -0.41, 1, 0.47) alternate infinite;
+}
+
+//gradient circle empty
+.gradient-box-empty {
+  width: 50px;
+  height: 50px;
+  position: relative;
+  padding: 2em;
+  box-sizing: border-box;
+  $border: 3px;
+  background: white;
+  background-clip: padding-box; /* !importanté */
+  border: solid $border transparent; /* !importanté */
+
+  &:before {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: -1;
+    margin: -$border; /* !importanté */
+    border-radius: inherit; /* !importanté */
+    background: linear-gradient(-45deg, $primary 30%, #55c8e5);
+    animation: rotation 3s alternate infinite linear;
+  }
+}
+#gform_page_3_1 .gform_page_fields,
+#gform_fields_3 {
+  height: 100%;
+}
+
+#gform_page_3_1 .ginput_container_phone {
+  height: auto;
+}
+.gform_body > svg {
+  fill: $primary;
+}
+
+.gform_next_button {
+  margin: 0 !important;
+}
+
+#gform_submit_button_3 {
+  width: 100%;
+  margin: 0!important;
+}
+
+//animations
+@keyframes rotation {
+  to {
+    transform: rotate(1turn);
+  }
+
+}
+
+@keyframes floating {
+  from {
+    transform: translateY(-10px);
+  }
+  to {
+    transform: translateY(10px);
+  }
+}
+
+@keyframes opacity {
+  0% {
+    filter: opacity(1);
+  }
+  50% {
+    filter: opacity(0.5);
+  }
+  100% {
+    filter: opacity(1);
+  }
+}
+#gform_confirmation_message_3 {
+  width: 100%;
+  position: relative;
+  box-sizing: border-box;
+  padding-left: 15px;
+  padding-right: 15px;
+  $border: 3px;
+  background: white;
+  background-clip: padding-box; /* !importanté */
+  border: solid $border transparent; /* !importanté */
+
+  &:before {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: -1;
+    margin: -$border; /* !importanté */
+    border-radius: inherit; /* !importanté */
+    background: linear-gradient(-45deg, $primary 30%, #55c8e5);
+  }
+}

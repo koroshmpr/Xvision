@@ -2,13 +2,15 @@
 
 get_header();
 ?>
-    <section class="h-100 w-100 position-relative overflow-y-hidden overflow-x-hidden" style="direction:ltr!important">
+    <section class="h-100 w-100 position-relative overflow-x-hidden overflow-y-hidden landing" style="background-image: url('https://summer.xvision.ir/wp-content/uploads/2023/07/1111.jpg'); background-size: cover; background-position: center center">
         <div class="container">
-            <div class="row px-0 min-vh-100 justify-content-center align-items-center ">
-                <div class="col-lg-10 d-flex flex-column align-items-center justify-content-center gap-4 py-3 px-3 z-top">
-                    <h1>مسابقه بزرگ محله</h1>
-                    <div id="notice-contest"
-                         class=" btn btn-warning fs-5 lh-base border-warning border pt-2 pb-1 rounded-0"></div>
+            <div class="row px-0 min-vh-100 justify-content-start align-items-center">
+                <div class="col-lg-6 d-flex flex-column align-items-center justify-content-center gap-5 py-3 px-3 z-top" style="background-image: url('https://summer.xvision.ir/wp-content/uploads/2023/07/stars.png'); background-size: cover;background-position: center center; background-repeat: no-repeat">
+                    <h1 class="text-white mb-4">
+                        قرعه‌کشی ایکس.ویژن
+                    </h1>
+<!--                    <div id="notice-contest"-->
+<!--                         class="btn btn-warning fs-5 lh-base border-warning border pt-2 pb-1 rounded-0"></div>-->
 
                     <form class="text-center">
                         <fieldset name='number-code' data-number-code-form>
@@ -28,17 +30,17 @@ get_header();
                         </fieldset>
                     </form>
 
-                    <button type="button" class="btn btn-warning fs-5 lh-base border-warning border pt-2 pb-1 rounded-0"
+                    <button type="button" class="swipe-overlay-out border-0 fs-4 px-4 py-2 mt-2 fw-bold "
                             data-fetch-button>
                         انتخاب برنده
                     </button>
 
-                    <div class="w-100 d-flex justify-content-center align-items-center">
-                        <h1 class="jumbo" id="myTargetElement"></h1>
-                        <!--                        <span>*</span>-->
-                        <!--                        <span>*</span>-->
-                        <!--                        <span>*</span>-->
-                        <!--                        <div class="odometer last-four-digits"></div>-->
+                    <div class="d-flex justify-content-center align-items-center counterUp element">
+                        <div class="jumbo d-flex justify-content-end display-4 mb-0" id="myTargetElement"></div>
+<!--                        <span>*</span>-->
+<!--                        <span>*</span>-->
+<!--                        <span>*</span>-->
+<!--                        <div class="odometer last-four-digits"></div>-->
 
                     </div>
 
@@ -49,3 +51,4 @@ get_header();
 
 
 <?php get_footer();
+

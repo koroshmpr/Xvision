@@ -36,24 +36,29 @@ document.addEventListener('DOMContentLoaded', function () {
             });
 
             // Compare lastFourDigits with modified item.id
-            const contestContainer = document.getElementById('notice-contest');
-            if (lastFourDigits.join('') <= modifiedItems.length) {
-                contestContainer.innerHTML = '.برنده پیدا شد'
-            } else {
-                contestContainer.innerHTML = ` شماره شرکت کننده باید بین عدد 1 تا  ${modifiedItems.length} باشد`
-            }
+            // const contestContainer = document.getElementById('notice-contest');
+            // if (lastFourDigits.join('') <= modifiedItems.length) {
+            //     contestContainer.innerHTML = '.برنده پیدا شد'
+            // } else {
+            //     contestContainer.innerHTML = ` شماره شرکت کننده باید بین عدد 1 تا  ${modifiedItems.length} باشد`
+            // }
             const foundItem = modifiedItems.find(item => item.id === lastFourDigits.join(''));
 
             if (foundItem) {
+                const easingFn = function (t, b, c, d) {
+                    var ts = (t /= d) * t;
+                    var tc = ts * t;
+                    return b + c * (tc * ts + -5 * ts * ts + 10 * tc + -10 * ts + 5 * t);
+                }
                 const options = {
                     formattingFn: (n) => {
                         return formatNumber(n);
                     },
                     startVal: 0,
-                    duration: 3.3,
-                    plugin: new Odometer({ duration: 2.3, lastDigitDelay: 1000 }),
-                    useGrouping: false,
+                    easingFn,
+                    plugin: new Odometer({ duration: 1.3 }),
                     separator: '',
+                    prefix: '۰',
                     decimal: '',
                     numerals: ['۰', '۱', '۲', '۳', '۴', '۵', '۶', '۷', '۸', '۹'],
                 };
@@ -62,7 +67,7 @@ document.addEventListener('DOMContentLoaded', function () {
                     const numAsString = num.toString();
                     if (numAsString.length >= 6) {
                         const firstThreeDigits = numAsString.substring(0, 3);
-                        return firstThreeDigits + '***' + numAsString.substring(6);
+                        return '0' + firstThreeDigits + '***' + numAsString.substring(6);
                     }
                     return numAsString;
                 }
@@ -180,6 +185,60 @@ document.addEventListener('DOMContentLoaded', function () {
         }
     }
     numberCodeForm.addEventListener('keydown', handleKeyDown);
+
+
+
+//     animation dots
+    const element = document.querySelector('.element');
+    const dotContainer = document.createElement('div');
+    dotContainer.classList.add('dot-container');
+
+    function createDots() {
+        const numDots = 40;
+        const perimeter = (element.offsetWidth + element.offsetHeight) * 2;
+        const dotWidth = 20;
+        const dotHeight = 10;
+        const space = perimeter / numDots;
+
+        for (let i = 0; i < numDots; i++) {
+            const dot = document.createElement('div');
+            dot.className = 'dot';
+            const angle = (space * i) % perimeter;
+            let x, y;
+
+            if (angle < element.offsetWidth) {
+                x = angle;
+                y = 0;
+            } else if (angle < element.offsetWidth + element.offsetHeight) {
+                x = element.offsetWidth;
+                y = angle - element.offsetWidth;
+            } else if (angle < element.offsetWidth * 2 + element.offsetHeight) {
+                x = element.offsetWidth - (angle - (element.offsetWidth + element.offsetHeight));
+                y = element.offsetHeight;
+            } else {
+                x = 0;
+                y = element.offsetHeight - (angle - (element.offsetWidth * 2 + element.offsetHeight));
+            }
+
+            x -= dotWidth / 2;
+            y -= dotHeight / 2;
+
+            dot.style.left = `${x}px`;
+            dot.style.top = `${y}px`;
+            dotContainer.appendChild(dot);
+
+            // Add recursive blinking animation to both odd and even dots
+            dot.style.animation = i % 2 === 0 ? 'blinkEven 5s infinite' : 'blinkOdd 5s infinite';
+        }
+    }
+
+    element.appendChild(dotContainer);
+    createDots();
+
+
+
+
+
 
 
 });
